@@ -24,7 +24,11 @@ class MedianFilter:
         self.q.append(x)
         return np.median(self.q)
 
-Експеримент 1 — Базовий (Baseline)
+Експеримент 1 - Базовий
+
+<img width="1386" height="532" alt="image" src="https://github.com/user-attachments/assets/d02a2c46-f7b9-411b-928a-a18e02ae22de" />
+<img width="1087" height="567" alt="image" src="https://github.com/user-attachments/assets/b740cec2-918e-41ca-8325-c92f8956df51" />
+<img width="1047" height="289" alt="image" src="https://github.com/user-attachments/assets/83cad23e-0bae-469a-9766-2d39894a1483" />
 
 
 W_SMA=20 - a_EMA=0.1 - W_MED=21
@@ -37,6 +41,11 @@ Lag на змійці (13–20 с): всі фільтри запізнюютьс
 
 Експеримент 2 - Over-smoothing
 
+<img width="1032" height="399" alt="image" src="https://github.com/user-attachments/assets/385d3d66-6abd-442f-ad90-47d75ae5d6e4" />
+<img width="1009" height="556" alt="image" src="https://github.com/user-attachments/assets/5c9aeb32-859f-4c51-ae45-1a936a1caa03" />
+<img width="1025" height="291" alt="image" src="https://github.com/user-attachments/assets/87b8a291-c127-44ea-ac6c-cf25219ba818" />
+
+
 W_SMA=100 - a_EMA=0.02 - W_MED=21
 
 <table> <thead><tr><th>Фільтр</th><th>RMSE X</th><th>RMSE Y</th></tr></thead> <tbody> <tr><td>SMA</td><td>2.0580</td><td>2.4698</td></tr> <tr><td>EMA</td><td>1.8275</td><td>2.3252</td></tr> <tr><td>Median</td><td>0.4853</td><td>0.9538</td></tr> </tbody> </table>
@@ -46,6 +55,11 @@ W_SMA=100 - a_EMA=0.02 - W_MED=21
 Причина: Lag = W/2 / FS = 100/2 / 50 = 1 с. При швидкості 3 м/с це 3 м позиційної помилки -- більше ніж вхідний шум 0.8 м. Фільтр прибрав "тремтіння", але спотворив саму траєкторію . Більше згладжування != менша похибка
 
 Експеримент 3 - Медіанний фільтр W=5
+
+<img width="1072" height="398" alt="image" src="https://github.com/user-attachments/assets/32f9178e-5f7e-4a2c-a2c2-d9cc52f55254" />
+<img width="1046" height="546" alt="image" src="https://github.com/user-attachments/assets/ed3436b8-6b9e-4077-9bcf-b9057b956bd4" />
+<img width="1087" height="286" alt="image" src="https://github.com/user-attachments/assets/888d8719-07e9-44ab-82df-ba47651bf9ec" />
+
 
 W_SMA=5 - a_EMA=0.33 - W_MED=5
 
